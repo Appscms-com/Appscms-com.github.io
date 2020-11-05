@@ -6,5 +6,6 @@
 6. https://appscms-com.github.io/6-Template%20List.htm
 7. https://appscms-com.github.io/7-Add-New-Template.htm
 8. https://appscms-com.github.io/8-Add-Tags-To-Project.htm
+9. https://appscms-com.github.io/9-Add-Tags-to-review.png
 10. https://appscms-com.github.io/10-Reply-to-Review.png
 
