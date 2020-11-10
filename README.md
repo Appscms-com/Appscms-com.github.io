@@ -9,3 +9,6 @@
 9. https://appscms-com.github.io/9-Add-Tags-to-review.png
 10. https://appscms-com.github.io/10-Reply-to-Review.png
 
+ sample file for seo
+ https://appscms-com.github.io/file-upload.html
+
