@@ -38,10 +38,6 @@ body {
     opacity: 70%;
     color: #11304e;
 }
-input{
-  width:50%;
-  height: 10px;
-}
 label{
   display: inline-block;
     min-width: 20px;
@@ -59,12 +55,17 @@ label{
   position: sticky;
   top: 0;
 }
+input{
+  width:50%;
+  height: 10px;
+}
+
 .left-panel{
   position: sticky;
   top: 0;
   border: 1px solid #e1e4e8;
-  border-radius: 7px;
   background: white;
+  border-radius: 7px;
   margin: 0px 25px;
 }
 .git-filters{

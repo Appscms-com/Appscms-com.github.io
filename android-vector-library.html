@@ -5,8 +5,10 @@
 </head>
 <body>
     
-    <script type="text/javascript" src="data.json"></script> 
-    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>  
+    <script type="text/javascript" src="test.json">
+
+    </script> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>  
 
 
 <!-- <script>
@@ -66,11 +68,13 @@ $(function() {
                         </div><hr/>
                         <div class="star">
                             <label for="star">Stars:</label>
-                            <input type="range" id="vol" name="vol" min="0" max="50">
+                            <input type="range" id="stars" name="stars" min="0" max="3410"onchange="updateInput(this);">
+                            <div id="stars-value"></div>
                         </div><hr/>
                         <div class="forks">
                             <label for="forks">Forks:</label>
-                            <input type="range" id="vol" name="vol" min="0" max="50">
+                            <input type="range" id="forks" name="forks" min="0" max="200" onchange="updateInput(this);">
+                            <div id="forks-value"></div>
                         </div><hr/>
                     </div>
                 </div>
