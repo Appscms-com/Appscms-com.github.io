@@ -18,8 +18,12 @@ body {
     text-align: center;
     margin-top: 90px;
 }
+.heading-git{
+  text-align: center;
+  margin-top: 40px;
+}
 .heading-h1{
-    font-size: 60px;
+    font-size: 70px;
     font-weight: 800;
     line-height: 1.33;
     color: #11304e;
@@ -56,7 +60,8 @@ label{
   top: 0;
 }
 input{
-  width:50%;
+  width:100%;
+  padding:10px;
   height: 10px;
 }
 
@@ -114,7 +119,7 @@ input{
   height: 0;
 }
 select{
-  width: 50%;
+  width: 100%;
   height:25px;
   border: 1px solid lightgrey;
   border-radius: 4px;

@@ -6,7 +6,20 @@ var starVal = 0;
 var showArr = '';
 let starsCount = 0;
 let forksCount =0;
-//document.getElementById("stars-value").innerHTML = starVal?starVal:0;
+let languagefilter = '';
+let licensefilter = '';
+var categoryList=[];
+var options = "<option value=''>All</option>";
+sampleJson && sampleJson.map((item)=>{
+    if(item.license){
+        if (categoryList.includes(item.license) === false){
+            categoryList.push(item.license);
+            options += "<option>"+ item.license +"</option>";
+        }   
+    }
+})
+document.getElementById("license").innerHTML = options;
+
 function updateInput(val) {
     document.getElementById("stars-value").innerHTML = starsCount?starsCount:0;
     document.getElementById("forks-value").innerHTML = forksCount?forksCount:0;
@@ -14,11 +27,18 @@ function updateInput(val) {
         starsCount = val.value;
     }else if(val.name ==='forks'){
         forksCount = val.value;
+    }else if(val.name ==='license'){
+        licensefilter =val.value;
+    }else if(val.name ==='language'){
+        languagefilter = val.value;
     }
 
     starVal = val;
+    console.log(languagefilter);
+    console.log(licensefilter);
+
     showArr = sampleJson.filter(function (e) {
-        return (e.stargazersCount > starsCount && e.forks > forksCount);
+        return (e.stargazersCount > starsCount && e.forks > forksCount && (e.license==licensefilter) &&  (e.language==languagefilter))
     });
     showFilterData(showArr);
 
@@ -27,6 +47,7 @@ function updateInput(val) {
     showFilterData(sampleJson);
   }
 function showFilterData(showArr){
+    document.getElementById("repo-count").innerHTML = `<h3>Showing ${showArr.length} results</h3>`;
     var x ="", i;
     showArr && showArr.map(item=>{
     x = x + `<div class="mt-n1">
@@ -53,10 +74,10 @@ function showFilterData(showArr){
             </span>
         </div>
         <div class="mr-3">
-        <relative-time datetime="${item.updatedAt}" class="no-wrap" title="16 Nov 2020, 16:02 GMT+5:30">${item.license}</relative-time>
-       </div>
+         <relative-time class="no-wrap" title="16 Nov 2020, 16:02 GMT+5:30">${item.license?item.license:''}</relative-time>
+        </div>
         <div class="mr-3">
-        Updated <relative-time datetime="${item.updatedAt}" class="no-wrap" title="16 Nov 2020, 16:02 GMT+5:30">${item.updatedAt}</relative-time>
+        Updated <relative-time class="no-wrap" title="16 Nov 2020, 16:02 GMT+5:30">${item.updatedAt?item.updatedAt:''}</relative-time>
         </div>
 
     </div>

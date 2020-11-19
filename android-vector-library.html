@@ -11,19 +11,20 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>  
 
 
-<!-- <script>
+<script>
 $(function() {
     var people = [];
 
     $.getJSON('test.json', function(data) {
         $.each(data.person, function(i, f) {
+            console.log(f);
             var tblRow = "<tr>" + "<td>" + f.firstName + "</td>" +
             "<td>" + f.lastName + "</td>" + "<td>" + f.job + "</td>" + "<td>" + f.roll + "</td>" + "</tr>"
             $(tblRow).appendTo("#userdata tbody");
         }); 
     });
 });
-</script> -->
+</script>
 
 <div class="header">
     <a href="#default" class="logo"><img src="https://d33wubrfki0l68.cloudfront.net/435cb83033afae0c25ccebfc5898aff748b725cf/9c0e0/img/logo.png"></a>
@@ -35,46 +36,83 @@ $(function() {
       <a href='/#'>FREE TRIAL</a>
     </div>
   </div>
-  
+    <div class="heading-git">
+        <h1 class="git-heading-h1">Android vector library</h1>
+    </div>
 
     <div class="row col filter-div">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="stick-panel">
-                <div class="git-heading">
-                    <h1 class="git-heading-h1">Android vector library</h1>
-                </div>
                 <div class="left-panel">
                     <div class="col-md-12 git-filters"><hr/>
-                        <div class="category">
-                            <label for="category">Category:</label>
-                            <select name="Category" id="category">
-                                <option value="sound">android sound</option>
-                                <option value="round">android round</option>
-                            </select>
+                        <div class="row col category">
+                            <div class="col-md-4">
+                                <label for="category">Category:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select name="Category" id="category">
+                                    <option value="sound">android sound</option>
+                                    <option value="round">android round</option>
+                                </select>
+                            </div>
                         </div><hr/>
-                        <div class="updated">
-                            <label for="updated">Recent Updated:</label>
-                            <label class="switch">
-                                <input type="checkbox" checked>
-                                <span class="slider"></span>
-                            </label>
+
+                        <div class="row col updated">
+                            <div class="col-md-4">
+                                <label for="updated">Updated:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select name="updated" id="updated">
+                                    <option value="sound">Last 1 day</option>
+                                    <option value="round">Last 1 week</option>
+                                    <option value="sound">Last 1 month</option>
+                                    <option value="round">Last 6 month</option>
+                                    <option value="round">Last 1 year</option>
+                                    <option value="All">All time</option>
+                                </select>
+                            </div>
                         </div><hr/>
-                        <div class="license">
-                            <label for="license">License:</label>
-                            <select name="Category" id="category">
-                                <option value="sound">apache</option>
-                                <option value="round">apache 2</option>
-                            </select>
+
+                        <div class="row col license">
+                            <div class="col-md-4">
+                                <label for="license">License:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select name="license" id="license" onchange="updateInput(this);"></select>
+                            </div>
                         </div><hr/>
-                        <div class="star">
-                            <label for="star">Stars:</label>
-                            <input type="range" id="stars" name="stars" min="0" max="3410"onchange="updateInput(this);">
-                            <div id="stars-value"></div>
+                        <div class="row col license">
+                            <div class="col-md-4">
+                                <label for="language">Language:</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select name="language" id="language" onchange="updateInput(this);">
+                                    <option value=''>All</option>
+                                    <option value="Java">Java</option>
+                                    <option value="Kotlin">Kotlin</option>
+                                   
+                                </select>
+                            </div>
                         </div><hr/>
-                        <div class="forks">
-                            <label for="forks">Forks:</label>
-                            <input type="range" id="forks" name="forks" min="0" max="200" onchange="updateInput(this);">
-                            <div id="forks-value"></div>
+                        <div class="row col star">
+                            <div class="col-md-3">
+                                <label for="star">Stars:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="range" id="stars" name="stars" min="0" max="3410"onchange="updateInput(this);">
+                                <div id="stars-value"></div>
+                            </div>
+                            
+                         
+                        </div><hr/>
+                        <div class="row col forks">
+                            <div class="col-md-3">
+                                <label for="forks">Forks:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="range" id="forks" name="forks" min="0" max="200" onchange="updateInput(this);">
+                                <div id="forks-value"></div>
+                            </div>
                         </div><hr/>
                     </div>
                 </div>
@@ -82,19 +120,16 @@ $(function() {
 
         </div>
         
-        <div class="right-panel col-md-5">
-            <div class="Box p-3 mb-4 d-flex">
-                <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/android/android.png" width="64" height="64" class="d-block rounded-1 mr-3 flex-shrink-0" alt="android logo">
+        <div class="right-panel col-md-6">
+            <div class="p-3 mb-4 d-flex">
                 <div class="d-md-flex flex-items-start flex-auto">
                     <div class="flex-auto">
-                    <h3 class="mb-1">Android</h3>
-                    <p>Android is an operating system built by Google designed for mobile devices.</p>
+                        <div id="repo-count"></div>
                     </div>        
                  </div>
             </div>
-
-            <div id="demo"></div>
-
+        
+        
             <div class="git-card">
                 <hr/>
                 <div id="git-card"></div>
@@ -102,6 +137,15 @@ $(function() {
                 <script type="text/javascript" src="gitCard.js"></script>
                 
             </div> 
+            <!-- <div>
+                <ul class="pagination pagination-sm">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                  </ul>
+            </div> -->
         </div>
     </div>
     
