@@ -38,6 +38,10 @@ body {
     opacity: 70%;
     color: #11304e;
 }
+input{
+  width:50%;
+  height: 10px;
+}
 label{
   display: inline-block;
     min-width: 20px;
