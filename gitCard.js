@@ -52,7 +52,9 @@ function showFilterData(showArr){
             <span itemprop="programmingLanguage">${item.language}</span>
             </span>
         </div>
-
+        <div class="mr-3">
+        <relative-time datetime="${item.updatedAt}" class="no-wrap" title="16 Nov 2020, 16:02 GMT+5:30">${item.license}</relative-time>
+       </div>
         <div class="mr-3">
         Updated <relative-time datetime="${item.updatedAt}" class="no-wrap" title="16 Nov 2020, 16:02 GMT+5:30">${item.updatedAt}</relative-time>
         </div>
